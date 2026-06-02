@@ -1,0 +1,38 @@
+{
+  "name": "ticket-data-extraction-api",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "ms-toolsai.jupyter"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/app/.venv/bin/python",
+        "python.formatting.provider": "none",
+        "[python]": {
+            "editor.defaultFormatter": "charliermarsh.ruff",
+            "editor.formatOnSave": true,
+            "editor.codeActionsOnSave": {
+                "source.fixAll.ruff": "explicit",
+                "source.organizeImports.ruff": "explicit"
+            }
+        }
+      }
+    }
+  },
+  "postCreateCommand": "uv sync",
+  "remoteWorkspaceFolder": "/app",
+  "mounts": [
+    "source=${localWorkspaceFolder}/data,target=/app/data,type=bind"
+  ],
+    "remoteUser": "vscode"
+}
