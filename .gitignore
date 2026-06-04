@@ -14,3 +14,10 @@ data/
 .vscode/
 EOF
 .ruff_cache/
+
+*.pt
+mlruns/
+mlflow/
+runs/
+
+data/test_api/

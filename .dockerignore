@@ -1,0 +1,10 @@
+data/
+models/
+mlflow/
+.venv/
+__pycache__/
+*.pyc
+*.pth
+*.pt
+.git/
+notebooks/
