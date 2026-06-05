@@ -1,20 +1,22 @@
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 WORKDIR /app
 
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
-
 RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
 COPY pyproject.toml .python-version ./
 COPY uv.lock* ./
 
 RUN uv sync --no-dev
 
-COPY . .
+COPY api/ api/
+COPY src/ src/
+COPY config/ config/
 
 EXPOSE 8000
 
