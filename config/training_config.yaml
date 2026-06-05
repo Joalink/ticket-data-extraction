@@ -4,17 +4,17 @@ model:
   imgsz: 640
 
 training:
-  epochs: 50
+  epochs: 60
   batch: 16
   lr0: 0.01
-  patience: 10
+  patience: 20
   save_period: 5
   workers: 4
   device: 0
 
 paths:
   data_yaml: config/data.yaml
-  output: runs/detect  #models/weights
+  output: runs/detect
   weights: runs/detect/models/weights/run/weights/best.pt
   mlflow_db: mlflow/mlflow.db
 
