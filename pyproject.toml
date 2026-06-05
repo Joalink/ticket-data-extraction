@@ -4,7 +4,6 @@ version = "0.1.0"
 requires-python = ">=3.13"
 
 dependencies = [
-    "ultralytics==8.4.60",
     "fastapi==0.136.3",
     "mlflow>=3.13.0",
     "uvicorn==0.48.0",
