@@ -1,5 +1,4 @@
 data/
-models/
 mlflow/
 .venv/
 __pycache__/

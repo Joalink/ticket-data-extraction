@@ -17,6 +17,7 @@ RUN uv sync --no-dev
 COPY api/ api/
 COPY src/ src/
 COPY config/ config/
+COPY models/ models/
 
 EXPOSE 8000
 
