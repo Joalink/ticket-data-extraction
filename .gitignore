@@ -15,7 +15,6 @@ EOF
 .ruff_cache/
 
 *.pt
-!best.pt
 mlruns/
 mlflow/
 runs/
