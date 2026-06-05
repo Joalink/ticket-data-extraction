@@ -3,14 +3,14 @@ from pathlib import Path
 from PIL import Image
 from ultralytics import YOLO
 
-WEIGHTS_PATH = Path("models/weights/best.pt")
+WEIGHTS_PATH = Path("models/weights/best.onnx")
 
 
 class YOLOInference:
     def __init__(self, weights_path: Path = WEIGHTS_PATH):
         if not weights_path.exists():
             raise FileNotFoundError(f"Weights not found at {weights_path}")
-        self.model = YOLO(str(weights_path))
+        self.model = YOLO(str(weights_path), task="detect")
         self.class_names = self.model.names
 
     def predict(

@@ -1,5 +1,7 @@
 FROM python:3.13-slim
 
+ENV YOLO_CONFIG_DIR=/tmp/Ultralytics
+
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
