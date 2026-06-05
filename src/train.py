@@ -7,7 +7,6 @@ from ultralytics import YOLO
 import mlflow
 
 CONFIG_PATH = Path("config/training_config.yaml")
-# WEIGHTS_PATH = Path(config["paths"]["weights"])
 
 
 def load_config(config_path: Path) -> dict:
@@ -104,8 +103,6 @@ def main() -> None:
     print(f"Training complete. Metrics: {metrics}")
 
     weights_path = Path(config["paths"]["weights"])
-
-    # weights_path = Path(config["paths"]["output"]) / "run" / "weights" / "best.pt"
 
     if weights_path.exists():
         best_dest = Path("models/weights/best.pt")

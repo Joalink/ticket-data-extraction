@@ -6,7 +6,7 @@ from ultralytics import YOLO
 import mlflow
 
 CONFIG_PATH = Path("config/training_config.yaml")
-# WEIGHTS_PATH = Path(config["paths"]["weights"])
+WEIGHTS_PATH = Path("models/weights/best.pt")
 
 
 def load_config() -> dict:
@@ -16,12 +16,10 @@ def load_config() -> dict:
 
 def evaluate(config: dict) -> dict:
 
-    weights_path = Path(config["paths"]["weights"])
+    if not WEIGHTS_PATH.exists():
+        raise FileNotFoundError(f"Weights not found at {WEIGHTS_PATH}")
 
-    if not weights_path.exists():
-        raise FileNotFoundError(f"Weights not found at {weights_path}")
-
-    model = YOLO(str(weights_path))
+    model = YOLO(str(WEIGHTS_PATH))
 
     results = model.val(
         data=config["paths"]["data_yaml"],

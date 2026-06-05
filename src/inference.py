@@ -3,9 +3,7 @@ from pathlib import Path
 from PIL import Image
 from ultralytics import YOLO
 
-# WEIGHTS_PATH = Path("models/weights/best.pt")
-
-WEIGHTS_PATH = Path("runs/detect/models/weights/run/weights/best.pt")
+WEIGHTS_PATH = Path("models/weights/best.pt")
 
 
 class YOLOInference:
