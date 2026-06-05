@@ -16,7 +16,7 @@
         "ms-toolsai.jupyter"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/app/.venv/bin/python",
+        "python.defaultInterpreterPath": "/app/ticket-data-extraction/.venv/bin/python",
         "python.formatting.provider": "none",
         "[python]": {
             "editor.defaultFormatter": "charliermarsh.ruff",
@@ -29,10 +29,10 @@
       }
     }
   },
-  "postCreateCommand": "uv sync",
-  "remoteWorkspaceFolder": "/app",
+  "remoteWorkspaceFolder": "/app/ticket-data-extraction",
   "mounts": [
-    "source=${localWorkspaceFolder}/data,target=/app/data,type=bind"
+    "source=${localWorkspaceFolder}/data,target=/app/ticket-data-extraction/data,type=bind"
   ],
-    "remoteUser": "vscode"
+  "runArgs": ["--gpus", "all", "--shm-size=2gb"],
+  "remoteUser": "vscode"
 }

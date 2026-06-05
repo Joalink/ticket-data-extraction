@@ -1,0 +1,14 @@
+names:
+- Address
+- Date
+- Item
+- OrderId
+- Subtotal
+- Tax
+- Title
+- TotalPrice
+nc: 8
+path: /workspaces/ticket-data-extraction/data/processed
+test: test/images
+train: train/images
+val: val/images

@@ -1,0 +1,35 @@
+model:
+  base: yolov8n.pt
+  task: detect
+  imgsz: 640
+
+training:
+  epochs: 60
+  batch: 16
+  lr0: 0.01
+  patience: 20
+  save_period: 5
+  workers: 4
+  device: 0
+
+paths:
+  data_yaml: config/data.yaml
+  output: runs/detect
+  weights: runs/detect/models/weights/run/weights/best.pt
+  mlflow_db: mlflow/mlflow.db
+
+mlflow:
+  experiment_name: yolo-finetune
+  model_name: yolo-detector
+  min_map50: 0.5
+
+augmentation:
+  flipud: 0.3
+  fliplr: 0.5
+  degrees: 10.0
+  translate: 0.1
+  scale: 0.5
+  mosaic: 1.0
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
