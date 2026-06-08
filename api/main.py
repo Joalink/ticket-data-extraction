@@ -1,16 +1,16 @@
 import io
-from fastapi import FastAPI, UploadFile, File, Depends, HTTPException
+
+from fastapi import Depends, FastAPI, File, HTTPException, UploadFile
 from PIL import Image
 
-from api.schemas import PredictResponse, HealthResponse
 from api.dependencies import get_model
+from api.schemas import HealthResponse, PredictResponse
 from src.inference import YOLOInference
 
-
 app = FastAPI(
-    title="YOLO Detection API",
-    description="Object detection backend service",
-    version="0.1.0",
+    title="Ticket Data Extraction API",
+    description="API for extracting data from tickets using a YOLOv8 model",
+    version="1.0.0",
 )
 
 
